@@ -1,6 +1,7 @@
 import React, {useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { theme } from '../../config';
 import SafeArea from '../../components/SafeArea';
@@ -62,8 +63,12 @@ const Registerscreen = ({navigation}) => {
     //     })
     // }
 
-    const handleRegister = _ =>{
+    const handleRegister = async _ =>{
         
+        state.valid = (state.pass===state.rePass) ? true : false
+        if(valid && state.email!=='' && state.name!=='' && state.pass !== ''){
+            await AsyncStorage.setItem('user', JSON.stringify(state))
+        }
         console.log(state)
     }
 

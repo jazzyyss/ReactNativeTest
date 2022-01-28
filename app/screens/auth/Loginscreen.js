@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Ionicons } from '@expo/vector-icons';
 
 import { theme } from '../../config';
@@ -9,7 +10,6 @@ import AuthInput from '../../components/AuthInput';
 
 const Loginscreen = ({navigation}) => {
 
-    useEffect(_=>{},[])
     
     let [state, setState] = useState({
         email: '',
@@ -30,9 +30,11 @@ const Loginscreen = ({navigation}) => {
         })
     }
 
-    const handleLogin = _ =>{
-        
-        console.log(state)
+    const handleLogin = async _ =>{
+
+        await AsyncStorage.setItem('user', 'jaspreet')
+        navigation.navigate("MainStack", {screen:"Homescreen"})
+
     }
 
     return (

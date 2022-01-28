@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Text, StyleSheet, StatusBar, Platform, Pressable } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Button } from 'react-native';
 import { MaterialIcons, Ionicons } from '@expo/vector-icons';
 
 import { theme } from '../../config/index';
 import SafeArea from '../../components/SafeArea';
 
 function Landingscreen({navigation}) {
-
+    
     return (
         <SafeArea>
             <View style={styles.titleContainer}>
@@ -14,13 +14,13 @@ function Landingscreen({navigation}) {
             </View>
             <View style={styles.buttonsContainer}>
                 <View style={[styles.buttonWraper, styles.loginWrapper]}>
-                    <Pressable style={styles.button} onPress={_=>navigation.navigate('LoginPage')}>
+                    <Pressable style={styles.button} onPress={_=>navigation.navigate('Loginscreen')}>
                         <MaterialIcons name="login" size={24} color="white" />
                         <Text style={styles.buttonText}>Login</Text>
                     </Pressable>
                 </View>
                 <View style={styles.buttonWraper}>
-                    <Pressable style={styles.button} onPress={_=>navigation.navigate('RegisterPage')}>
+                    <Pressable style={styles.button} onPress={_=>navigation.navigate('Registerscreen')}>
                         <Ionicons name="ios-mail-outline" size={24} color="white" />
                         <Text style={styles.buttonText}>Register</Text>
                     </Pressable>

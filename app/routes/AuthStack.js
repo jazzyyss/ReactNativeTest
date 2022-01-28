@@ -4,33 +4,34 @@ import Landingscreen from '../screens/auth/Landingscreen';
 import Loginscreen from '../screens/auth/Loginscreen';
 import Registerscreen from '../screens/auth/Registerscreen';
 
-const Stack = createNativeStackNavigator();
+const Auth = createNativeStackNavigator();
 
 const AuthStack = _ => {
+
     return(
-        <Stack.Navigator>
-            <Stack.Screen 
-                name="LandingPage" 
+        <Auth.Navigator headerMode="none">
+            <Auth.Screen 
+                name="Landingscreen" 
                 component={Landingscreen} 
                 options={{
                 headerShown: false
                 }}
             />
-            <Stack.Screen 
-                name="LoginPage" 
+            <Auth.Screen 
+                name="Loginscreen" 
                 component={Loginscreen}
                 options={{
                     headerShown: false
                 }}
             />
-            <Stack.Screen 
-                name="RegisterPage" 
+            <Auth.Screen 
+                name="Registerscreen" 
                 component={Registerscreen}
                 options={{
                     headerShown: false
                 }}
             /> 
-        </Stack.Navigator>
+        </Auth.Navigator>
     )
 }
 
