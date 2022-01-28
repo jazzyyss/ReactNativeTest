@@ -33,7 +33,7 @@ const Loginscreen = ({navigation}) => {
     const handleLogin = async _ =>{
 
         await AsyncStorage.setItem('user', 'jaspreet')
-        navigation.navigate("MainStack", {screen:"Homescreen"})
+        navigation.navigate("BottomTab")
 
     }
 
