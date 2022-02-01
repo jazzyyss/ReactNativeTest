@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Homescreen from '../screens/Homescreen';
+import Detailscreen from '../screens/Detailscreen';
 
 const Main = createNativeStackNavigator();
 
@@ -11,6 +12,13 @@ const MainStack = () => {
             <Main.Screen 
                 name="Homescreen" 
                 component={Homescreen} 
+                options={{
+                    headerShown: false
+                }}
+            />
+            <Main.Screen 
+                name="Detailscreen" 
+                component={Detailscreen} 
                 options={{
                     headerShown: false
                 }}

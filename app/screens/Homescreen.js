@@ -1,6 +1,7 @@
 import React from 'react';
-import { Pressable, Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Ionicons } from '@expo/vector-icons';
 
 import SafeArea from '../components/SafeArea';
 import { theme } from '../config/index';
@@ -26,11 +27,6 @@ const Homescreen = ({navigation}) => {
         {key: 14, modal: 2016, title: 'NewHolland'}
     ]
 
-    const handleLogout = async _ =>{
-        await AsyncStorage.removeItem('user');
-        navigation.navigate("AuthStack")
-    }
-
     return (
         <SafeArea>
             <View style={styles.titleContainer}>
@@ -40,8 +36,10 @@ const Homescreen = ({navigation}) => {
                 <ListView 
                     data={DATA}
                     renderItem={RenderItem}
+                    navigation={navigation}
                 />
             </View>
+            <Ionicons style={styles.addItem} name="add" size={52} color="black" />
         </SafeArea>
     );
 }
@@ -55,6 +53,16 @@ const styles = StyleSheet.create({
     titleText:{
         fontSize: theme.sizes[2],
         fontWeight: theme.fontWeights.bold
+    },
+    addItem:{
+        position: 'absolute',
+        right: 20,
+        bottom: 20,
+        height:50,
+        width: 50,
+        borderRadius: 50,
+        backgroundColor: 'white',
+        
     }
 })
 

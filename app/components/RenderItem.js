@@ -1,9 +1,16 @@
 import React from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
-const RenderItem = _ =>{
+const RenderItem = (item, navigation) =>{
+    //console.log(item)
+    //console.log(navigation)
+
+    const handlePress = _ =>{
+        navigation.navigate('Detailscreen', {item})
+    }
+
     return(
-        <TouchableOpacity style={styles.cardContainer} activeOpacity={0.6}>
+        <TouchableOpacity style={styles.cardContainer} activeOpacity={0.6} onPress={handlePress}>
             <Image source={require("../assets/t1.jpeg")} style={styles.image} />
         </TouchableOpacity>
 )};
@@ -18,7 +25,6 @@ const styles = StyleSheet.create({
         //overflow: 'hidden',
         alignItems: 'center',
         elevation: 7
-        
     },
     image: {
         height: '100%',

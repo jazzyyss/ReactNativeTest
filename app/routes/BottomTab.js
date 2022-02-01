@@ -2,10 +2,9 @@ import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
-import Favscreen from '../screens/Favscreen';
-import Settingscreen from '../screens/Settingscreen';
 import MainStack from './MainStack';
-
+import FavStack from './FavStack';
+import SettingStack from './SettingStack';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,9 +19,9 @@ const BottomTab = _ => {
                 iconName = focused
                   ? 'home'
                   : 'home-outline';
-              } else if (route.name === 'Settingscreen') {
+              } else if (route.name === 'SettingStack') {
                 iconName = focused ? 'settings-sharp' : 'md-settings-outline';
-              }else if(route.name === 'Favscreen'){
+              }else if(route.name === 'FavStack'){
                   iconName = focused ? 'md-star' : 'md-star-outline'
               }
               return <Ionicons name={iconName} size={size} color={color} />;
@@ -40,15 +39,15 @@ const BottomTab = _ => {
                 }}    
             />
             <Tab.Screen 
-                name="Favscreen" 
-                component={Favscreen} 
+                name="FavStack" 
+                component={FavStack} 
                 options={{
                   headerShown: false  
                 }}    
             />
             <Tab.Screen 
-                name="Settingscreen" 
-                component={Settingscreen} 
+                name="SettingStack" 
+                component={SettingStack} 
                 options={{
                   headerShown: false  
                 }}    
